@@ -1,15 +1,15 @@
 <template>
-  <HelloWorld msg="You hooked me sannia"/>
+  <div id="app">
+    <UserProfile/>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import UserProfile from "./components/UserProfile";
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
+  components: { UserProfile}
 }
 </script>
 
@@ -18,8 +18,9 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 </style>
