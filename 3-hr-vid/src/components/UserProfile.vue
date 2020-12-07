@@ -10,13 +10,17 @@
           </div>
       </div>
       <div class="user-profile_twoots-wrapper">
-
+          <TwootItem v-for="twoot in user.twoots" :key="twoot.id" :userName="user.userName" :twoot="twoot" />
       </div>
   </div>
 </template>
 
 <script>
+import TwootItem from "./TwootItem"
+
 export default {
+  name: userProfile,
+  components: { TwootItem },
     data(){
     return{
       followers: 0,
