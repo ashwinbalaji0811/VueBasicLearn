@@ -9,6 +9,9 @@
               <strong>Followers: </strong> {{ followers }}
           </div>
       </div>
+      <div class="user-profile_twoots-wrapper">
+
+      </div>
   </div>
 </template>
 
@@ -23,7 +26,12 @@ export default {
         firstName: 'Sannia',
         lastName: 'Sajive',
         email: 'sanniasajive0409@gmail.com',
-        isAdmin: true
+        isAdmin: true,
+        twoots: [
+            { id: 1, content: "Sannia is lovely"},
+            { id: 2, content: "Sannia is a hooker"},
+            { id: 3, content: "Sannia is badass bitch cum whore"}
+        ]
       }
     }
   },
