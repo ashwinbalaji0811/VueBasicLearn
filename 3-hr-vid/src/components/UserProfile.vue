@@ -8,8 +8,10 @@
           <div class="user-profile_follower-count">
               <strong>Followers: </strong> {{ followers }}
           </div>
-          <form class="user-profile_create-twoot" @submit.prevent="createNewTwoot">
-            <label for="newTwoot"><strong>New Twoot</strong></label>
+          <form class="user-profile_create-twoot" 
+          @submit.prevent="createNewTwoot" 
+          :class="{ '--exceeds': newTwootCharacterCount > 180 }">
+            <label for="newTwoot"><strong>New Twoot</strong> ({{ newTwootCharacterCount }}/180)  </label>
             <textarea id="newTwoot" rows="4" v-model="newTwootContent" />
             <div class="user-profile_create-twoot-type">
               <label for="newTwootType"><strong>Type: </strong></label>
@@ -76,6 +78,9 @@ export default {
   computed: {
     fullName() {
       return `${this.user.firstName} ${this.user.lastName}`;
+    },
+    newTwootCharacterCount() {
+      return this.newTwootContent.length;
     }
   },
   methods: {
@@ -101,14 +106,14 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .user-profile {
     display: grid;
     grid-template-columns: 1fr 3fr;
     width: 100%;
     padding: 50px 5%;
-}
-.user-profile_user-panel {
+
+    .user-profile_user-panel {
     display: flex;
     flex-direction: column;
     margin-right: 50px;
@@ -132,5 +137,18 @@ h1 {
   display: flex;
   flex-direction: column;
   padding-top: 20px;
+  &,--exceeds {
+  border-color: brown;
+  color: brown;
+
+  button {
+    background-color:brown;
+    border: none;
+    color: white;
+  }
 }
+}
+
+}
+
 </style>
